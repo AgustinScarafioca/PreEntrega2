@@ -5,31 +5,18 @@ class Producto{
     this.id = id;
     this.precio = precio
     this.stock = stock;
-}
-    aumentarStock(ingreso = 1){
-        this.stock = this.stock + ingreso
-    }
-    disminuirStock(egreso = 1){
-        this.stock = this.stock - egreso
-    }
-    aumentoPrecio(porcentaje = 1){
-        this.precio = precio * porcentaje
-        // this.precio *= porcentaje
-    }
-    mostrarSeleccion(){
-        console.log(`Usted selecciono el producto ${this.nombre}`)
     }
 }
 
 const producto1= new Producto ("Sauron", 1, 1500, 5)
-const producto2= new Producto ("Frodo Bolson", 2, 2000, 1)
+const producto2= new Producto ("Frodo Bolson", 2, 2000, 5)
 const producto3= new Producto ("Smaug", 3, 1800, 3)
 const producto4= new Producto ("Stormtrooper", 4, 800, 25)
 const producto5= new Producto ("Darth Vader", 5, 1200, 10)
 const producto6= new Producto ("Han Solo", 6, 1400, 15 )
 const producto7= new Producto ("Sauron", 7, 1750, 5)
-const producto8= new Producto ("Balrog", 8, 2500, 3)
-const producto9= new Producto ("Asd", 9, 1800, 8)
+const producto8= new Producto ("Balrog", 8, 3500, 3)
+const producto9= new Producto ("The Mandalorian", 9, 2800, 8)
 
 const productos = [producto1, producto2, producto3, producto4, producto5, producto6, producto7, producto8, producto9]
 
@@ -55,10 +42,12 @@ boton1.addEventListener("click",() => {
             <p>${producto.name}</p>
             <p>Precio: ${producto.precio}</p>
             <p>Stock: ${producto.stock}</p>
+            <button type="button" id="botonCarrito${producto.id}" class="btn btn-secondary">Agregar a carrito</button>
         </div>
         `
     })
 })  
+
 
 
 class User{
@@ -82,9 +71,15 @@ formulario.addEventListener("submit", (e) =>{
     usuarios.push(user)
     formulario.reset()
     console.log(usuarios)
+    localStorage.setItem("usuarios", usuarios)
 })
 
-if(usuarios!=""){
+
+if (localStorage.getItem(usuarios)) {
+    usuarios=localStorage.getItem(usuarios)
+}
+
+if(usuarios){
     usuarioExitoso.innerHTML+=`
     <div class= "container">
         <p> El usuario ha sido creado con exito</p>
@@ -92,6 +87,12 @@ if(usuarios!=""){
     ` 
 }
 
+
+
+
+//Codigo de Carrito
+
+const precioProductos = productos.map
 
 /*
 const usuarioExitoso = document.getElementById("exito")
