@@ -1,4 +1,4 @@
-
+//Objetos productos
 class Producto{
     constructor (name, id, precio, stock,){
     this.name =  name;
@@ -23,33 +23,8 @@ const productos = [producto1, producto2, producto3, producto4, producto5, produc
 console.log(productos)
 
 
-/* const input1= document.getElementById("input1")
-const input2= document.getElementById("input2")
 
-input1.addEventListener("change")
-
-input2.addEventListener("change")
- */
-
-const boton1 = document.getElementById("boton1")
-
-boton1.addEventListener("click",() => {
-    const divProductos = document.getElementById("divProductos")
-
-    productos.forEach(producto =>{
-        divProductos.innerHTML += `
-        <div class= "card p-5 m-2 w-25 bg-info" id= "card ${producto.id}">
-            <p>${producto.name}</p>
-            <p>Precio: ${producto.precio}</p>
-            <p>Stock: ${producto.stock}</p>
-            <button type="button" id="botonCarrito${producto.id}" class="btn btn-secondary">Agregar a carrito</button>
-        </div>
-        `
-    })
-})  
-
-
-
+//Formulario de usuario
 class User{
     constructor(username, email, password){
         this.username = username;
@@ -79,20 +54,13 @@ if (localStorage.getItem(usuarios)) {
     usuarios=localStorage.getItem(usuarios)
 }
 
-if(usuarios){
+if(usuarios!= ""){
     usuarioExitoso.innerHTML+=`
     <div class= "container">
         <p> El usuario ha sido creado con exito</p>
     </div>
     ` 
 }
-
-
-
-
-//Codigo de Carrito
-
-const precioProductos = productos.map
 
 /*
 const usuarioExitoso = document.getElementById("exito")
@@ -115,6 +83,30 @@ if (longitud > 0) {
     ` 
 }
 */
+
+//Codigo de productos y carrito
+
+const boton1 = document.getElementById("boton1")
+
+boton1.addEventListener("click",() => {
+    const divProductos = document.getElementById("divProductos")
+
+    productos.forEach(producto =>{
+        divProductos.innerHTML += `
+        <div class= "card p-5 m-2 w-25 bg-info" id= "card ${producto.id}">
+            <p>${producto.name}</p>
+            <p>Precio: ${producto.precio}</p>
+            <p>Stock: ${producto.stock}</p>
+            <button type="button" id="botonCarrito${producto.id}" class="btn btn-secondary">Agregar a carrito</button>
+        </div>
+        `
+    })
+})  
+
+
+const precioProductos = productos.map
+
+
 
 
 
