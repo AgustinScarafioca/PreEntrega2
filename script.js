@@ -46,19 +46,19 @@ formulario.addEventListener("submit", (e) =>{
     usuarios.push(user)
     formulario.reset()
     console.log(usuarios)
-    localStorage.setItem("usuarios", usuarios)
+    localStorage.setItem("usuarios", JSON.stringify(usuarios))
 })
 
+const usuarioExitoso = document.getElementById("userCheck")
+console.log(usuarioExitoso)
 
 if (localStorage.getItem(usuarios)) {
-    usuarios=localStorage.getItem(usuarios)
+    usuarios=JSON.parse(localStorage.getItem(usuarios))
 }
 
 if(usuarios!= ""){
     usuarioExitoso.innerHTML+=`
-    <div class= "container">
-        <p> El usuario ha sido creado con exito</p>
-    </div>
+        <p> Bienvenido ${usuarios[0].username}</p>
     ` 
 }
 
@@ -103,10 +103,14 @@ boton1.addEventListener("click",() => {
     })
 })  
 
+const botonCarrito = document.getElementById("botonCarrito")
 
 const precioProductos = productos.map
 
 
-
+function listo() {
+    let removerItems
+    
+}
 
 
