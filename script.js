@@ -50,15 +50,15 @@ formulario.addEventListener("submit", (e) =>{
 })
 
 const usuarioExitoso = document.getElementById("userCheck")
-console.log(usuarioExitoso)
 
 if (localStorage.getItem(usuarios)) {
-    usuarios=JSON.parse(localStorage.getItem(usuarios))
+    JSON.parse(localStorage.getItem("usuarios"))
 }
+console.log(usuarios)
 
-if(usuarios!= ""){
+if(usuarios){
     usuarioExitoso.innerHTML+=`
-        <p> Bienvenido ${usuarios[0].username}</p>
+        <p> Bienvenido ${usuarios.username}</p>
     ` 
 }
 
